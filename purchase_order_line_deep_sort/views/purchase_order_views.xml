@@ -10,11 +10,13 @@
                         <label for="line_order" />
                         <div>
                             <field name="line_order" class="oe_inline" />
-                            (<field
+                            (
+                            <field
                                 name="line_direction"
                                 class="oe_inline"
                                 attrs="{'required': [('line_order', '!=', False)]}"
-                            />)
+                            />
+                            )
                         </div>
                     </group>
                 </page>
