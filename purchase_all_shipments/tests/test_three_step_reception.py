@@ -15,6 +15,13 @@ class TestThreeStepReception(TransactionCase):
         self.wh.reception_steps = "three_steps"
         self.po.button_confirm()
         self.assertEqual(1, self.po.incoming_picking_count)
+        first_picking = self.po.picking_ids.filtered(lambda p: p.state == "assigned")
+        first_picking.move_line_ids.write({"quantity": 1.0, "picked": True})
+        first_picking.button_validate()
+        first_picking._action_done()
+        second_picking = self.po.picking_ids.filtered(lambda p: p.state == "assigned")
+        second_picking.move_line_ids.write({"quantity": 1.0, "picked": True})
+        second_picking.button_validate()
         self.assertEqual(3, self.po.all_picking_count)
 
     def test_action_view_all_pickings_one_step(self):
@@ -36,6 +43,13 @@ class TestThreeStepReception(TransactionCase):
     def test_action_view_all_pickings_three_step(self):
         self.wh.reception_steps = "three_steps"
         self.po.button_confirm()
+        first_picking = self.po.picking_ids.filtered(lambda p: p.state == "assigned")
+        first_picking.move_line_ids.write({"quantity": 1.0, "picked": True})
+        first_picking.button_validate()
+        first_picking._action_done()
+        second_picking = self.po.picking_ids.filtered(lambda p: p.state == "assigned")
+        second_picking.move_line_ids.write({"quantity": 1.0, "picked": True})
+        second_picking.button_validate()
         action_data = self.po.action_view_all_pickings()
         self.assertEqual(
             action_data["domain"],

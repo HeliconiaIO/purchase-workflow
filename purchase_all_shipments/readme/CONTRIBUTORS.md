@@ -1,2 +1,3 @@
 - Leonardo Pistone \<<leonardo.pistone@camptocamp.com>\>
 - Nicolas Mac Rouillon \<<nmr@adhoc.com.ar>\>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`_
