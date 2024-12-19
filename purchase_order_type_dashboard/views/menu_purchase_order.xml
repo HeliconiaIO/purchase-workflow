@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <!--    <record id="purchase_order_type_dashboard_action" model="ir.actions.window">-->
+    <!--        <field name="name">Dashboard</field>-->
+    <!--        <field name="res_model">purchase.order.type</field>-->
+    <!--        <field name="view_mode">kanban,tree,form,pivot</field>-->
+    <!--    </record>-->
+
     <record id="purchase_order_type_dashboard_action" model="ir.actions.act_window">
         <field name="name">Dashboard</field>
-        <field name="type">ir.actions.act_window</field>
+        <field name="path">purchase-dashboard</field>
         <field name="res_model">purchase.order.type</field>
-        <field name="view_mode">kanban,tree,form,pivot</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
     </record>
 
     <menuitem
